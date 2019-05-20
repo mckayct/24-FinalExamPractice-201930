@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Colton McKay.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -30,7 +30,7 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
 ###############################################################################
 
 import rosegraphics as rg
-
+import math
 
 def main():
     """ Calls the   TEST   functions in this module. """
@@ -102,6 +102,28 @@ def hourglass(window, n, point, radius, color):
     #    DIFFICULTY:      8
     #    TIME ESTIMATE:  25 minutes (warning: this problem is challenging)
     # -------------------------------------------------------------------------
+
+
+    center_circle = rg.Circle(point,radius)
+    center_circle.fill_color = color
+    center_circle.attach_to(window)
+    for k in range(3):
+        for j in range(k):
+            circle = rg.Circle(rg.Point(point.x+(radius*k),
+                                        point.y+(k*2*radius*math.sin(60*2*3.14/180))), radius)
+            circle.fill_color = color
+            circle.attach_to(window)
+
+            circle2 = rg.Circle(rg.Point(point.x + (radius * k),
+                                        point.y + (k * -2 * radius * math.sin(60 * 2 * 3.14 / 180))), radius)
+            circle2.fill_color = color
+            circle2.attach_to(window)
+
+            circle3 = rg.Circle(
+                rg.Point(point.x + (radius * k), point.y + (k * 2 * radius * math.sin(60 * 2 * 3.14 / 180))), radius)
+            circle3.fill_color = color
+            circle3.attach_to(window)
+    window.render()
 
 
 def run_test_many_hourglasses():

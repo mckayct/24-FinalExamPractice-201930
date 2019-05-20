@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Colton McKay.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -46,7 +46,7 @@ def main():
 def run_test_practice_problem3():
     """ Tests the   practice_problem3  function. """
     ###########################################################################
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  practice_problem3  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests beyond those we wrote.
     #
@@ -123,7 +123,18 @@ def run_test_practice_problem3():
     # -------------------------------------------------------------------------
     # Run the 14 tests in the   tests   list constructed above.
     # -------------------------------------------------------------------------
+
+    tests.append(st.SimpleTestCase(practice_problem3,
+                                   [-5, 2, 1],
+                                   [-5, 1]))
+
+    tests.append(st.SimpleTestCase(practice_problem3,
+                                   [-5, 3, 1.3],
+                                   [1, 7, 13]))
+
+
     st.SimpleTestCase.run_tests('practice_problem3', tests)
+
 
     ###########################################################################
     # TO DO 2 continued:  More tests:
@@ -135,6 +146,9 @@ def run_test_practice_problem3():
     # SUGGESTION: Ask an assistant to CHECK your tests to confirm
     #             that they are adequate tests!
     ###########################################################################
+
+    ###Appended my test above^^
+
 
 
 def practice_problem3(start, n, threshold):
@@ -209,7 +223,7 @@ def practice_problem3(start, n, threshold):
       :type threshold: float
     """
     ###########################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ###########################################################################
@@ -217,6 +231,23 @@ def practice_problem3(start, n, threshold):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   < 15 minutes.
     ###########################################################################
+
+
+
+    list = []
+    lists = []
+    if n == 0:
+        return []
+    if threshold > math.sqrt(2):
+        for k in range(start + n):
+            list.append(start + k)
+        return list
+    while True:
+        if len(lists) == n:
+            return lists
+        if (math.sin(start) + math.cos(start)) > threshold:
+            lists.append(start)
+        start = start + 1
 
 
 # -----------------------------------------------------------------------------
